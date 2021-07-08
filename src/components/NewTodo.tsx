@@ -11,7 +11,12 @@ const NewTodo: React.FC<addTodoProps> = ({ onAddTodo }) => {
     const todoSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const enteredText = textInputRef.current!.value;
-        onAddTodo(enteredText);
+
+        if (enteredText === "") {
+            return null;
+        } else {
+            onAddTodo(enteredText);
+        }
     };
 
     return (
